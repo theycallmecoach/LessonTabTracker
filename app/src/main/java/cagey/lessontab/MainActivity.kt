@@ -4,9 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import cagey.lessontab.adapters.StudentListAdapter
+import cagey.lessontab.fragments.MainFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +19,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        if (savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.content_main, MainFragment.newInstance(), "studentList")
+                .commit()
+        }
+
+//        val fab = findViewById<FloatingActionButton>(R.id.add_student_fab)
+//        fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
 
 //        viewManager = LinearLayoutManager(this)
 //
