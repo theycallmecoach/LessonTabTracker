@@ -11,6 +11,8 @@ import android.view.ViewGroup
 import android.view.LayoutInflater
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
 
@@ -30,6 +32,12 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState : Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        student_add_fab.setOnClickListener { v ->
+            Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }
+
         val studentList = ArrayList<String>()
 
         super.onCreate(savedInstanceState)
