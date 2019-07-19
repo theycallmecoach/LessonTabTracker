@@ -1,10 +1,9 @@
-package cagey.lessontab.fragments
+package cagey.lessontab
 
 import android.view.View
 import androidx.fragment.app.Fragment
 import android.os.Bundle
 import androidx.recyclerview.widget.RecyclerView
-import cagey.lessontab.R
 import cagey.lessontab.adapters.StudentListAdapter
 import cagey.lessontab.views.CageyRecyclerView
 import android.view.ViewGroup

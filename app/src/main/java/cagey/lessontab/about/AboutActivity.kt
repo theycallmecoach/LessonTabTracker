@@ -1,4 +1,4 @@
-package cagey.lessontab.activities.about
+package cagey.lessontab.about
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
