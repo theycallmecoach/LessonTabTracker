@@ -1,48 +1,42 @@
 package cagey.lessontab.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cagey.lessontab.R
+import cagey.lessontab.data.Student
 
-class StudentListAdapter(private val values: ArrayList<String>) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
+class StudentListAdapter(context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
 
-    // Provide a reference to the view for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the view for a data item in a view holder.
-    // Each data item is just a string in this case that is shown in a TextView
-    class StudentViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
-//        val txtFirstLine = v.findViewById(R.id.firstLine) as TextView
-//        val txtSecondLine = v.findViewById(R.id.secondLine) as TextView
-        val layout = v
+    private val inflater : LayoutInflater = LayoutInflater.from(context)
+    private var students = emptyList<Student>()
+
+
+    inner class StudentViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+      val txtName = v.findViewById(R.id.student_name) as TextView
     }
 
-
-    fun add(position: Int, item : String) {
-        values.add(position, item)
-        notifyItemInserted(position)
-    }
-
-    fun remove(position: Int) {
-        values.removeAt(position)
-        notifyItemRemoved(position)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup,
                                     viewType: Int) : StudentListAdapter.StudentViewHolder {
         // create a new view
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.content_main, parent, false)
+        val view = inflater.inflate(R.layout.student_item, parent, false)
         return StudentViewHolder(view)
 
     }
 
     override fun onBindViewHolder(holder: StudentViewHolder, position: Int) {
-//        holder.txtFirstLine.text = values[position]
-//        holder.txtSecondLine.text = values[position]
+        val current = students[position]
+        holder.txtName.text = current.firstName + " " + current.lastName
     }
 
-    override fun getItemCount() = values.size
+    internal fun setStudents(students: List<Student>) {
+        this.students = students
+        notifyDataSetChanged()
+    }
 
+    override fun getItemCount() = students.size
 }

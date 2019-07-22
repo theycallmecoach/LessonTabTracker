@@ -10,13 +10,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:id="@+id/student_empty_view">
 
-        <cagey.lessontab.views.CageyRecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:id="@+id/student_list_view"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        </cagey.lessontab.views.CageyRecyclerView>
         <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,6 +34,12 @@
                                                     android:orientation="horizontal"
                                                     app:layout_constraintGuide_percent="0.25"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <cagey.lessontab.views.CageyRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/student_list_view"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </cagey.lessontab.views.CageyRecyclerView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"

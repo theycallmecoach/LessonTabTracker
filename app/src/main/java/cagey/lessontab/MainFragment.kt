@@ -37,11 +37,10 @@ class MainFragment : Fragment() {
                 .setAction("Action", null).show()
         }
 
-        val studentList = ArrayList<String>()
-
         super.onCreate(savedInstanceState)
 
-        viewAdapter = StudentListAdapter(studentList)
+
+        viewAdapter = StudentListAdapter(view.context)
         recyclerView = view.findViewById<CageyRecyclerView>(R.id.student_list_view).apply {
             setEmptyView(view.findViewById(R.id.student_empty_view))
             setHasFixedSize(true)

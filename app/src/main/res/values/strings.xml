@@ -8,6 +8,11 @@
     <string name="written_by">Written by Kyle Girard</string>
     <string name="title_activity_settings">SettingsActivity</string>
 
+    <string name="student_avatar">Student Avatar</string>
+    <string name="content_description_tab">Tab</string>
+    <string name="content_description_time">Time</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
