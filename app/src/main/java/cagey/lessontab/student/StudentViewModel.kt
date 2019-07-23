@@ -1,4 +1,4 @@
-package cagey.lessontab.data
+package cagey.lessontab.student
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

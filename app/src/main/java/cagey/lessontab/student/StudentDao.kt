@@ -1,4 +1,4 @@
-package cagey.lessontab.data
+package cagey.lessontab.student
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

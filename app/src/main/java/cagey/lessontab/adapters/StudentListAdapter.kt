@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cagey.lessontab.R
-import cagey.lessontab.data.Student
+import cagey.lessontab.student.Student
 
 class StudentListAdapter(context: Context) : RecyclerView.Adapter<StudentListAdapter.StudentViewHolder>() {
 

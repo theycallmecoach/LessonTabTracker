@@ -1,4 +1,4 @@
-package cagey.lessontab.data
+package cagey.lessontab.student
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
