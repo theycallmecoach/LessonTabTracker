@@ -21,6 +21,6 @@
                     android:layout_width="match_parent">
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <include layout="@layout/content_main"/>
     </com.google.android.material.appbar.AppBarLayout>
-    <include layout="@layout/content_main"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
