@@ -12,25 +12,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" android:id="@+id/imagebutton_avatar"
             app:layout_constraintHorizontal_bias="0.447" android:contentDescription="@string/student_avatar"
-            android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-            android:layout_width="379dp"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/empty_student_list_foreground"/>
+    <EditText
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_firstname" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            android:hint="@string/first_name" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/imagebutton_avatar"/>
-    <TextView
-            android:layout_width="379dp"
+            android:id="@+id/textview_firstname"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/first_name"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/imagebutton_avatar" android:inputType="textPersonName"
+            android:autofillHints="username"/>
+    <EditText
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/textview_lastname" android:hint="@string/last_name"
-            app:layout_constraintTop_toBottomOf="@+id/textview_firstname" android:layout_marginTop="16dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textview_firstname" android:layout_marginTop="16dp"
+            android:inputType="textPersonName" android:autofillHints="username"/>
     <Button
             android:text="@string/save"
             android:layout_width="379dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/button_save" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textview_lastname" app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintTop_toBottomOf="@+id/textview_lastname" app:layout_constraintHorizontal_bias="0.5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

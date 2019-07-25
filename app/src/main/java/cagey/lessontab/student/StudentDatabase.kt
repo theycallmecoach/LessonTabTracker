@@ -46,8 +46,8 @@ abstract class StudentDatabase : RoomDatabase() {
         suspend fun populateDatabase(studentDao: StudentDao) {
             studentDao.deleteAll()
 
-            var student = Student("Billy", "Bob")
-            studentDao.insert(student)
+//            var student = Student("Billy", "Bob")
+//            studentDao.insert(student)
         }
 
     }

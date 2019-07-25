@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModelProviders
+import cagey.lessontab.MainActivity
 
 import cagey.lessontab.R
 import kotlinx.android.synthetic.main.fragment_new_student.view.*
@@ -41,6 +42,9 @@ class NewStudentFragment : Fragment() {
                 val fName = view.textview_firstname.text.toString()
                 val lName = view.textview_lastname.text.toString()
                 studentViewModel.insert(Student(fName, lName))
+
+                val intent = Intent(activity, MainActivity::class.java)
+                startActivity(intent)
             }
         }
     }

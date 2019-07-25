@@ -62,12 +62,14 @@ class CageyRecyclerView : RecyclerView {
     }
 
     fun onChangeState() {
-        if (adapter?.itemCount == 0) {
-            emptyView!!.visibility = VISIBLE
-            this@CageyRecyclerView.visibility = GONE
-        } else {
-            emptyView!!.visibility = GONE
-            this@CageyRecyclerView.visibility = View.VISIBLE
+        if (adapter != null) {
+            if (adapter?.itemCount == 0) {
+                emptyView!!.visibility = VISIBLE
+                this@CageyRecyclerView.visibility = GONE
+            } else {
+                emptyView!!.visibility = GONE
+                this@CageyRecyclerView.visibility = VISIBLE
+            }
         }
     }
 }
