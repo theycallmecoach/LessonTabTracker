@@ -40,23 +40,20 @@ class MainFragment : Fragment() {
         student_add_fab.setOnClickListener {
             val intent = Intent(activity, NewStudentActivity::class.java)
             startActivity(intent)
-//            Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
         }
 
         super.onCreate(savedInstanceState)
 
-
         viewAdapter = StudentListAdapter(view.context)
         recyclerView = view.findViewById<CageyRecyclerView>(R.id.student_list_view).apply {
-            setEmptyView(view.findViewById(R.id.student_empty_view))
+            emptyView = view.findViewById(R.id.student_empty_view)
             setHasFixedSize(true)
             itemAnimator = DefaultItemAnimator()
             layoutManager = LinearLayoutManager(this.context)
             adapter = viewAdapter
         }
 
-        studentViewModel = ViewModelProviders.of(this).get(StudentViewModel::class.java)
+        studentViewModel = ViewModelProviders.of(this)[StudentViewModel::class.java]
         studentViewModel.allStudents.observe(this, Observer { students -> students?.let { viewAdapter.setStudents(students)} })
     }
 }

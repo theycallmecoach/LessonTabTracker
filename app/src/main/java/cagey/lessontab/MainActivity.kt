@@ -27,34 +27,6 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.content_main, MainFragment.newInstance(), "studentList")
                 .commit()
         }
-
-//        val fab = findViewById<FloatingActionButton>(R.id.add_student_fab)
-//        fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
-
-//        viewManager = LinearLayoutManager(this)
-//
-//        //create some dummy data
-//        val input = ArrayList<String>()
-//        for ( i in 0..99) {
-//            input.add("Student $i")
-//        }
-//
-//        viewAdapter = StudentListAdapter(input)
-//
-//        recyclerView = findViewById<RecyclerView>(R.id.recycler_view).apply {
-//            // use this setting to improve performance if you know that changes
-//            // in content to not change the layout size of the RecyclerView
-//            setHasFixedSize(true)
-//
-//            // user a linear layout manager
-//            layoutManager = viewManager
-//
-//            // specify a viewAdapter
-//            adapter = viewAdapter
-//        }
    }
 
 

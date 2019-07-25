@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.lifecycle.ViewModelProviders
 
 import cagey.lessontab.R
 import kotlinx.android.synthetic.main.fragment_new_student.view.*
@@ -18,7 +19,9 @@ import kotlinx.android.synthetic.main.fragment_new_student.view.*
 
 class NewStudentFragment : Fragment() {
 
-    override fun onCreateView(
+   private lateinit var studentViewModel: StudentViewModel
+
+   override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
@@ -30,17 +33,14 @@ class NewStudentFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        studentViewModel = ViewModelProviders.of(this)[StudentViewModel::class.java]
+
         val button = view.findViewById<Button>(R.id.button_save)
         button.setOnClickListener{
-            val replyIntent = Intent()
-            if (TextUtils.isEmpty(view.textview_firstname.text) || TextUtils.isEmpty(view.textview_lastname.text)) {
-                activity?.setResult(Activity.RESULT_CANCELED, replyIntent)
-            } else {
+            if (!(TextUtils.isEmpty(view.textview_firstname.text) && TextUtils.isEmpty(view.textview_lastname.text))) {
                 val fName = view.textview_firstname.text.toString()
                 val lName = view.textview_lastname.text.toString()
-                replyIntent.putExtra(FIRST_NAME, fName)
-                replyIntent.putExtra(LAST_NAME, lName)
-                activity?.setResult(Activity.RESULT_OK, replyIntent)
+                studentViewModel.insert(Student(fName, lName))
             }
         }
     }

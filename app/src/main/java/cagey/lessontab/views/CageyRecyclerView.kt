@@ -9,22 +9,29 @@ import androidx.recyclerview.widget.RecyclerView
  * Extends RecyclerView adding in support for a view to show when the list is empty
  */
 class CageyRecyclerView : RecyclerView {
-    private var emptyView: View? = null
+
+    var viewState: CageyRecyclerViewState? = CageyRecyclerViewState.EMPTY
+        set(value) {
+            field = value
+            setState()
+        }
+
+    var emptyView: View? = null
 
     private val observer = object : AdapterDataObserver() {
 
         override fun onChanged() {
-            showEmptyView()
+            onChangeState()
         }
 
         override fun onItemRangeInserted(posStart: Int, itemCount: Int) {
             super.onItemRangeInserted(posStart, itemCount)
-            showEmptyView()
+            onChangeState()
         }
 
         override fun onItemRangeRemoved(posStart: Int, itemCount: Int) {
             super.onItemRangeRemoved(posStart, itemCount)
-            showEmptyView()
+            onChangeState()
         }
     }
 
@@ -41,21 +48,26 @@ class CageyRecyclerView : RecyclerView {
         observer.onChanged()
     }
 
-
-    fun setEmptyView(v: View) {
-        emptyView = v
-    }
-
-    fun showEmptyView() {
-        val adapter = this.adapter
-        if (emptyView != null) {
-            if (adapter?.itemCount == 0) {
+    fun setState() {
+        when (this.viewState) {
+            CageyRecyclerViewState.EMPTY -> {
                 emptyView!!.visibility = VISIBLE
                 this@CageyRecyclerView.visibility = GONE
-            } else {
-                emptyView!!.visibility = GONE
-                this@CageyRecyclerView.visibility = View.VISIBLE
             }
+            CageyRecyclerViewState.NORMAL -> {
+                emptyView!!.visibility = GONE
+                this@CageyRecyclerView.visibility = VISIBLE
+            }
+        }
+    }
+
+    fun onChangeState() {
+        if (adapter?.itemCount == 0) {
+            emptyView!!.visibility = VISIBLE
+            this@CageyRecyclerView.visibility = GONE
+        } else {
+            emptyView!!.visibility = GONE
+            this@CageyRecyclerView.visibility = View.VISIBLE
         }
     }
 }
